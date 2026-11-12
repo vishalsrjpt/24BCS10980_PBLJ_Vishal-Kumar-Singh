@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;INIT=CREATE SCHEMA IF NOT EXISTS CAMPUSFIND
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        default_schema: campusfind
+  flyway:
+    enabled: false
+
+campusfind:
+  jwt:
+    secret: TestCampusFindSecretKeyForJwtAuthenticationSuperSecure384BitStringHere!
+    expiration-ms: 3600000
+  storage:
+    upload-dir: target/test-uploads
+  superadmin:
+    email: admin@gmail.com
+    password: admin123
+    name: System Super Admin
